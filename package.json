@@ -1,0 +1,25 @@
+{
+  "name": "dockerized-mongo-service",
+  "version": "1.0.0",
+  "description": "A sample app with a Vagrant box configured to run a MongoDB docker image",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sabhiram/dockerized-mongo-service.git"
+  },
+  "keywords": [
+    "Docker",
+    "Vagrant",
+    "MongoDB",
+    "NodeJS"
+  ],
+  "author": "Shaba Abhiram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sabhiram/dockerized-mongo-service/issues"
+  },
+  "homepage": "https://github.com/sabhiram/dockerized-mongo-service"
+}

@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# # vi: set ft=ruby :
+
+VAGRANTFILE_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_VERSION) do |config|
+
+    # Configure the box and point at its source image
+    config.vm.box = "coreos"
+    config.vm.box_url = "http://storage.core-os.net/coreos/amd64-generic/dev-channel/coreos_production_vagrant.box"
+
+    # Setup a private network IP for the VM
+    config.vm.network "private_network", ip: "172.12.8.156"
+
+    # Configure "this" folder to be exposed as "/home/core/share" in
+    # the box we are about to load. Also specify how the folder will
+    # be mounted
+    config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true,  :mount_options   => ["nolock,vers=3,udp"]
+
+    # Setup the provisioning script, note that this will be invoked
+    # when "vagrant provision" is called. Our provisioning script will
+    # build our docker image from "./Dockerfile" and run it
+    config.vm.provision :shell, :path => "./init.sh"
+
+end
